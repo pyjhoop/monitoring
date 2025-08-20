@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 5s
+  # 매트릭을 몇초마다 pull 할건지 정하는 것.
+
+scrape_configs:
+  - job_name: 'springboot' # 수집 작업할 이름을 적은것.
+    metrics_path: '/actuator/prometheus' # 어플리케이션의 엔드포인트
+    static_configs:
+      - targets: ['host.docker.internal:8080'] # 스프링 서버의 주소
